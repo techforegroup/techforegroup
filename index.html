@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFore Group, LLC - Providing services Since 1996</title>
+    <link rel="icon" href="favicon_tfg.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f0f0" width="1200" height="800"/><g fill-opacity="0.05"><circle fill="%232c3e50" cx="200" cy="200" r="150"/><circle fill="%232c3e50" cx="800" cy="500" r="200"/><circle fill="%232c3e50" cx="1000" cy="150" r="100"/><rect fill="%232c3e50" x="400" y="600" width="300" height="150" rx="10"/></g></svg>');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 0.8rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: 
+               /* #34495e; */
+                linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), /* white overlay at 50% */
+                url('techfore_main.jpg');
+            color: black;
+            padding: 3rem 1rem;
+            text-align: center;
+               
+
+           /* background-image: url('techfore_main.jpg'); */
+            background-size: cover;      /* scale image to fill div */
+            background-repeat: no-repeat;
+            background-position: center; /* center the image */
+            
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero a {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+           
+            
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .content {
+            margin: 2rem 0;
+            background:
+                linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), /* white overlay at 50% */
+                url('general-contractors-profession.jpg');
+            background-size: cover;
+            background-position: center;
+            
+        }
+
+        .content h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .content h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content h4 {
+            color: #34495e;
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .team-member h3 {
+            margin-top: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .project-image-placeholder {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-size: cover;
+            overflow: hidden;    /* hides anything that goes beyond */
+            
+        }
+
+        .project-image-placeholder img {
+            width: 100%;         /* scales image to fit width of parent */
+            height: 100%;        /* scales image to fit height of parent */
+            object-fit: cover;   /* crops image to fill box without distortion */
+            display: block;      /* removes inline spacing */
+        }
+
+
+        .project-card h3 {
+            padding: 1rem 1rem 0.5rem 1rem;
+            margin: 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .project-card p {
+            padding: 0 1rem 1rem 1rem;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .project-card p strong {
+            color: #34495e;
+        }
+
+        .site-header {
+        display: flex;
+        align-items: center;
+        gap: 30px; /* space between logo and text */
+        padding: 10px;
+        }
+
+        .logo {
+        width: 150px;       /* adjust size as needed */
+        height: auto;
+        }
+
+        .header-text h1 {
+        margin: 0;
+        font-size: 1.8em;
+        }
+
+        .header-text p {
+        margin: 0;
+        font-size: 1em;
+        color: #555555;
+        }
+
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <img src="techforegroup_logo.png" alt="TechFore Group Logo" class="logo">
+        <div class="header-text">
+            <h1>TechFore Group, LLC</h1>
+            <p>serving since 1996</p>
+        </div>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+            <li><a href="#" onclick="showPage('about'); return false;">About</a></li>
+            <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
+            <li><a href="#" onclick="showPage('references'); return false;">References</a></li>
+            <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <h2>Building the Future Together</h2>
+            <a href="#" onclick="showPage('contact'); return false;">Contact Us</a>
+        </div>
+
+        <div class="container">
+            <div class="content"> 
+                <p>
+                   <B>TechFore Group </B>(FKA Hilt Construction) is one of the most trusted names in the construction industry. It's drawing from our extensive previous experience and proven track record as one of the most reputable contractors in historical buildings.
+                </p>
+                <p>
+                    We boast of a 100% on-time completion record and a proven track record of quality workmanship, integrity and great value.
+                </p>
+                <p>
+                    TechFore Group, LLC continues to deliver projects to institutional, industrial and corporate clients with honesty, integrity and cost-effectiveness, 100% on time.
+                </p>
+                <p>
+                   <B> TechFore Group, LLC team is the most trusted, dependable partner for general construction needs.</B>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <div class="container">
+            <div class="content">
+                <h2>About Us</h2>
+                
+               
+                
+                <h3>Why TechFore Group</h3>
+                <p>
+                    Based in New Jersey, TechFore Group, LLC has been building extraordinary projects since 1996. We have earned a reputation as one of the premier historical contractors in the country. Today, we boast of a 100% on-time completion record, and a proven track record of quality workmanship, integrity and great value.
+                </p>
+                 <p>
+                    The principal of TechFore Group, LLC, Mr. Ganga Reddy, previously operated under the name Hilt Construction, Inc. The company was rebranded as TechFore Group, LLC when one of the partners at Hilt Construction retired.
+                </p>
+                
+                <p>
+                    In 1999, TechFore Group, LLC led the restoration of the Lambert Castle in Paterson, NJ. A historical landmark built in 1891 and recorded in the National Register of Historic Places, the Lambert Castle restoration required painstaking attention to detail and quality workmanship. Our successful restoration of the Lambert Castle earned us a reputation as one of the premier specialists in historical restoration in the country.
+                </p>
+                
+                <p>
+                    Today, TechFore Group, LLC continues to deliver projects to institutional, industrial and corporate clients with honesty, integrity and cost-effectiveness, 100% on time.
+                </p>
+
+                <h3>Our Qualifications</h3>
+                <p>
+                    Highly qualified team with strong engineering and management skills to overlook complex general construction work. Company's main experience is concrete foundation and repairs, Facade Restoration & roof replacement, Structural repairs, below grade waterproofing, Interior Fitout, Addition & Alteration, and Green Roof installation.
+                </p>
+                
+                <p>
+                    Company experience include various federal, state, and public facilities. Perform several design build and emergency projects for several agencies. Project team is highly trained in maintaining Safety and QA/QC of the projects. Capable of performing remote operations using state of the art technology.
+                </p>
+                
+                <p>
+                    Currently the Company has 8 to 10M single & 20 mil aggregate bonding. Minority Owned/ SBE in State and local agencies. Company operates union and open shop employees highly skilled in individual trades.
+                </p>
+                
+                <p>
+                    Qualified General Contractor with certification with several NY city & State agencies, State of NJ, NJ Transit, Port Authority, and several agencies in Tri State area.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <div class="container">
+            <div class="content">
+                <h2>Our Services</h2>
+                
+                <p>
+                    We form alliances with property owners, architects, structural engineers, and specialized trades-people.
+                </p>
+                
+                <p>
+                    We are proud of our Best Construction rating for commercial and industrial construction.
+                </p>
+
+                <h3>Our Commitment:</h3>
+                <ul>
+                    <li>On schedule completion</li>
+                    <li>Cost-effective process from beginning to end</li>
+                    <li>Final product exceeds expectations</li>
+                    <li>Honesty, integrity, and great value</li>
+                </ul>
+
+                <h3>Service Areas</h3>
+                
+                <h4>Commercial</h4>
+                <p>
+                    We provide comprehensive commercial construction services, delivering projects on time and within budget while maintaining the highest standards of quality and craftsmanship.
+                </p>
+                
+                <h4>Industrial</h4>
+                <p>
+                    Our industrial construction expertise ensures that your facility meets all operational requirements with efficient, cost-effective solutions.
+                </p>
+                
+                <h4>Residential</h4>
+                <p>
+                    Building single family homes to apartments and condos, we deliver quality residential construction projects that exceed expectations and stand the test of time.
+                </p>
+                
+                <h4>Historical</h4>
+                <p>
+                    We have earned a reputation as one of the premier historical contractors in the country. Today, we boast of a 100% on-time completion record, and a proven track record of quality workmanship, integrity & great value.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REFERENCES PAGE -->
+    <div id="references" class="page">
+        <div class="container">
+            <div class="content">
+                <h2>References</h2>
+                
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image-placeholder"> <img src="High-Point-Park-Monument-Plaza.jpg" 
+                            alt="High Point Park Monument Plaza"></div>
+                        <h3>High Point Park Monument Plaza Restoration</h3>
+                        <p><strong>(DPMC) State of NJ - Historical Renovation</strong></p>
+                        <p>Worked in a high security area. The scope of work includes General Construction work. Main work includes demolition of existing stucco and repairing backup concrete.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder"><img src="fort-lee-lewis-cole-middle-school.jpg" alt="Middle School Façade Restoration" class="project-image"></div>
+                        <h3>Middle School: Façade Restoration</h3>
+                        <p><strong>Basement Renovation</strong></p>
+                        <p>Brick pointing and basement renovation. Summer project executed on a fast pace schedule. Work includes Tremco roof coating.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder"> <img src="new_warehouse.jpg" alt="Warehouse New Construction" class="project-image"></div>
+                        <h3>Warehouse - New Construction</h3>
+                        <p><strong>Warehouse construction</strong></p>
+                        <p>Work includes foundation and building part as office space</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder"> <img src="spring-garden-elementary-school-1.png" alt="Masonry Restoration Project" class="project-image"></div>
+                        <h3>Masonry Restoration Project</h3>
+                        <p><strong>Historic Building</strong></p>
+                        <p>Masonry Cleaning, Brick Pointing, Brick Replacement, Parapet Wall Replacement.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder"> <img src="Metropolitan-Corporate-Academy-High-School.jpg" alt="SHPO Building Façade" class="project-image"></div>
+                        <h3>SHPO Building - Façade Restoration</h3>
+                        <p><strong>Historical Building</strong></p>
+                        <p>This Building comes under SHPO. The scope in this project involves façade restoration.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="newark-arts-high-school.jpg" alt="Historical Landmark Building" class="project-image">
+                        <h3>Newark Arts High School</h3>
+                        <p><strong>Exterior Restoration</strong></p>
+                        <p>This building is considered a historical landmark. Scope of work includes Exterior restoration.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="PS-16.png" alt="Retaining Wall Construction" class="project-image">
+                        <h3>Retaining Wall Construction</h3>
+                        <p><strong>Asbestos Abatement & New Construction</strong></p>
+                        <p>Asbestos Abatement, New free standing retaining wall with terracotta rain screen.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="Academic-Core-Building.png" alt="Façade Restoration" class="project-image">
+                        <h3>Façade Restoration Project</h3>
+                        <p><strong>Masonry Restoration</strong></p>
+                        <p>Asbestos abatement, Facade restoration. Work involved masonry cleaning.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="Union-County-Board-Education-Building.png" alt="Parapet Replacement" class="project-image">
+                        <h3>Parapet Replacement</h3>
+                        <p><strong>Masonry Restoration</strong></p>
+                        <p>Scope includes extensive exterior masonry restoration involving parapet replacement.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="The-Lillie-Devereux-Blake-School.jpg" alt="Rooftop Addition" class="project-image">
+                        <h3>PS6 Rooftop Addition</h3>
+                        <p><strong>5,600 SF Addition</strong></p>
+                        <p>Rooftop addition around 5600sf to existing building. Scope included structural work.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="PS6-Manhattan.png" alt="Raised Roof Deck" class="project-image">
+                        <h3>Raised Roof Deck Construction</h3>
+                        <p><strong>Roof Addition</strong></p>
+                        <p>Construction of raised roof deck over existing roof at west end of existing building.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="thomas-edison-memorial-tower.jpg" alt="Edison Memorial Tower" class="project-image">
+                        <h3>Edison Memorial Tower</h3>
+                        <p><strong>National Register of Historical Places</strong></p>
+                        <p>Edison Memorial Tower is listed in the NJ and National Registers of Historical places.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="58-Lawrence-Ave-Staten-Island-NY.jpg" alt="Stucco EIFS Replacement" class="project-image">
+                        <h3>Stucco/EIFS System Replacement</h3>
+                        <p><strong>Cornice Restoration</strong></p>
+                        <p>Remove and Replace Stucco/EIF System, Cornice Restoration and Replacement.</p>
+                    </div>
+
+                     <div class="project-card">
+                        <img src="hoboken-city-hall.jpg" alt="Edison Memorial Tower" class="project-image">
+                        <h3>Hoboken City Hall</h3>
+                        <p><strong>National Register of Historical Places</strong></p>
+                        <p>The Exterior Restoration of Hoboken City Hall (Historical Renovation). NJ</p>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="Princeton-High-school.jpg" alt="Stucco EIFS Replacement" class="project-image">
+                        <h3>Princeton High School</h3>
+                        <p><strong>New Construction.</strong></p>
+                        <p>Work includes installation of stage lighting, Rigging, Sound System for the newly built Auditorium. 
+                            Extensive coordination with several contractors hired by school. Also, 
+                            includes installation of Catwalk, Spiral Stairs at stage, 
+                            Wheelchair lift in orchestra pit, and minor finishes & carpentry work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <div class="container">
+            <div class="content">
+                <h2>Contact Us</h2>
+                
+                <p>
+                    Get in touch with TechFore Group, LLC for all your construction and construction management needs. We're here to help with your next project.
+                </p>
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Address:</strong><br>
+                    120 Old Camplain Road<br>
+                    Hillsborough, NJ 08844</p>
+                    
+                    <p><strong>Phone:</strong><br>
+                    732-586-6102</p>
+                    
+                    <p><strong>Email:</strong><br>
+                    info@techforegroup.com</p>
+                </div>
+
+                <h3>Why Work With Us?</h3>
+                <ul>
+                    <li>100% on-time completion record</li>
+                    <li>Over 25 years of construction service</li>
+                    <li>Proven track record of quality workmanship</li>
+                    <li>Integrity and great value</li>
+                    <li>Highly qualified team</li>
+                    <li>Strong engineering and management skills</li>
+                    <li>Trained in Safety and QA/QC</li>
+                    <li>State of the art technology</li>
+                </ul>
+
+                <p style="margin-top: 2rem;">
+                    <strong>TechFore Group, LLC team is the most trusted, dependable partner for general construction needs.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TechFore Group, LLC. All rights reserved.</p>
+        <p>Since 1996 - Quality Construction Services</p>
+        <p>120 Old Camplain Road, Hillsborough, NJ 08844 | 732-586-6102</p>
+    </footer>
+
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const selectedPage = document.getElementById(pageName);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
